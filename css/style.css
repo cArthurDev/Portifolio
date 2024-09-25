@@ -1,0 +1,212 @@
+/* Estilos gerais */
+body {
+    font-family: "Oswald", sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Barra de navegação */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 90px;
+    background-color: #ffffff; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.logo img {
+    width: 100px;
+    height: auto; 
+}
+
+nav ul {
+    list-style: none; 
+    display: flex; 
+    gap: 40px; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000; 
+    font-weight: bold; 
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #007BFF; 
+}
+
+button {
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: "Oswald", sans-serif;
+}
+
+
+/* Seção sobre mim */
+#sobre-mim {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#sobre-mim h1 {
+    font-family: "Caveat", cursive;
+    font-size: 6.5em;
+    color: #000000;
+}
+
+#sobre-mim img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+#resumo {
+    margin-top: 20px;
+    max-width: 600px;
+}
+
+/* Seções */
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* Seção de Redes Sociais */
+#redes-sociais {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#redes-sociais h2 {
+    font-family: "Caveat", cursive;
+    font-size: 2.5em;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+}
+
+.social-icons img {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%);
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover img {
+    filter: none;
+    transform: scale(1.1);
+}
+
+/* Carousel de Habilidades */
+.carousel-container-habilidades {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    padding: 20px 0;
+}
+
+.carousel-habilidades {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#habilidades {
+    text-align: center;
+}
+
+.habilidade {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    color: #000000;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.habilidade img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Carousel de Projetos */
+.carousel-container-projetos {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    padding: 20px 0;
+}
+
+.carousel-projetos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#projetos {
+    text-align: center;
+}
+
+.projetos {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    color: #000000;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.projetos img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    border-top: 1px solid #333;
+    margin-top: auto;
+    width: 100%;
+}
