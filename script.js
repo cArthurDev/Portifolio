@@ -5,6 +5,85 @@ const header = document.querySelector(".site-header");
 const sections = [...document.querySelectorAll("main section[id]")];
 const navLinks = [...document.querySelectorAll(".desktop-nav a")];
 const contactButton = document.querySelector('.button-ghost[href="#contact"]');
+const specialtyDialog = document.querySelector("[data-specialty-dialog]");
+const specialtyCards = [...document.querySelectorAll("[data-specialty]")];
+const dialogClose = document.querySelector("[data-dialog-close]");
+const specialtyDetails = {
+  python: {
+    label: "Python",
+    title: "Python para criar inteligência.",
+    description: "Uso Python para transformar dados e perguntas complexas em experimentos, modelos e soluções que funcionam no mundo real.",
+    icon: "https://cdn.simpleicons.org/python/FFD43B",
+    topics: ["Inteligência Artificial", "Dados", "Automação", "Visão Computacional"]
+  },
+  java: {
+    label: "Java",
+    title: "Java para sistemas confiáveis.",
+    description: "Construo aplicações orientadas a objetos com foco em organização, regras de negócio e back-end consistente.",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    topics: ["POO", "Back-end", "APIs", "Sistemas"]
+  },
+  javascript: {
+    label: "JavaScript",
+    title: "JavaScript para experiências vivas.",
+    description: "Uso JavaScript para criar interfaces interativas, comportamentos de página e experiências web responsivas.",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    topics: ["Web", "Interações", "DOM", "Responsividade"]
+  },
+  sql: {
+    label: "SQL",
+    title: "SQL para entender os dados.",
+    description: "Estruturo consultas e relações para transformar informação armazenada em base para decisões e produtos.",
+    icon: "https://cdn.simpleicons.org/mysql/4EFF9B",
+    topics: ["Consultas", "Modelagem", "Relatórios", "Dados"]
+  },
+  git: {
+    label: "Git",
+    title: "Git para evoluir com segurança.",
+    description: "Uso controle de versão para organizar experimentos, colaborar em projetos e manter cada mudança rastreável.",
+    icon: "https://cdn.simpleicons.org/git/F05032",
+    topics: ["Branches", "Commits", "GitHub", "Colaboração"]
+  },
+  api: {
+    label: "APIs REST",
+    title: "APIs para conectar sistemas.",
+    description: "Desenho integrações claras entre front-end, back-end e serviços externos com endpoints previsíveis.",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+    topics: ["FastAPI", "Integrações", "JSON", "Endpoints"]
+  },
+  postgres: {
+    label: "PostgreSQL",
+    title: "PostgreSQL para dados sólidos.",
+    description: "Uso bancos relacionais para persistir informação com consistência, consultas eficientes e estrutura bem definida.",
+    icon: "https://cdn.simpleicons.org/postgresql/69A2D8",
+    topics: ["Banco de dados", "Relacionamentos", "SQL", "Persistência"]
+  },
+  web: {
+    label: "HTML & CSS",
+    title: "Web para dar forma às ideias.",
+    description: "Construo interfaces semânticas, responsivas e cuidadosas nos detalhes visuais e na experiência de uso.",
+    icon: "https://cdn.simpleicons.org/html5/FF63DE",
+    topics: ["HTML5", "CSS3", "Acessibilidade", "UI"]
+  }
+};
+
+function openSpecialty(key) {
+  const detail = specialtyDetails[key];
+  if (!detail) return;
+  document.querySelector("[data-dialog-label]").textContent = detail.label;
+  document.querySelector("[data-dialog-title]").textContent = detail.title;
+  document.querySelector("[data-dialog-description]").textContent = detail.description;
+  document.querySelector("[data-dialog-icon]").src = detail.icon;
+  document.querySelector("[data-dialog-icon]").alt = `Logo do ${detail.label}`;
+  document.querySelector("[data-dialog-topics]").innerHTML = detail.topics.map((topic) => `<span>${topic}</span>`).join("");
+  specialtyDialog.showModal();
+}
+
+specialtyCards.forEach((card) => card.addEventListener("click", () => openSpecialty(card.dataset.specialty)));
+dialogClose.addEventListener("click", () => specialtyDialog.close());
+specialtyDialog.addEventListener("click", (event) => {
+  if (event.target === specialtyDialog) specialtyDialog.close();
+});
 
 function setTheme(theme) {
   root.dataset.theme = theme;
