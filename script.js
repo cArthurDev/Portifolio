@@ -27,7 +27,7 @@ const specialtyDetails = {
     label: "JavaScript",
     title: "JavaScript para experiências vivas.",
     description: "Uso JavaScript para criar interfaces interativas, comportamentos de página e experiências web responsivas.",
-    icon: "https://cdn.simpleicons.org/javascript/F7DF1E",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     topics: ["Web", "Interações", "DOM", "Responsividade"]
   },
   sql: {
