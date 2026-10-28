@@ -4,6 +4,7 @@ const menuToggle = document.querySelector(".menu-toggle");
 const header = document.querySelector(".site-header");
 const sections = [...document.querySelectorAll("main section[id]")];
 const navLinks = [...document.querySelectorAll(".desktop-nav a")];
+const contactButton = document.querySelector('.button-ghost[href="#contact"]');
 
 function setTheme(theme) {
   root.dataset.theme = theme;
@@ -29,6 +30,16 @@ navLinks.forEach((link) => {
     link.classList.add("active");
     header.classList.remove("menu-open");
     menuToggle.setAttribute("aria-expanded", "false");
+  });
+
+  contactButton?.addEventListener("click", (event) => {
+    event.preventDefault();
+    contactButton.classList.add("is-navigating");
+    window.setTimeout(() => {
+      window.location.hash = "contact";
+      document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      contactButton.classList.remove("is-navigating");
+    }, 650);
   });
 });
 
