@@ -75,7 +75,7 @@ function openSpecialty(key) {
   document.querySelector("[data-dialog-title]").textContent = detail.title;
   document.querySelector("[data-dialog-description]").textContent = detail.description;
   document.querySelector("[data-dialog-icon]").src = detail.icon;
-  document.querySelector("[data-dialog-icon]").alt = `Logo do ${detail.label}`;
+  document.querySelector("[data-dialog-icon]").alt = `${detail.label} logo`;
   document.querySelector("[data-dialog-topics]").innerHTML = detail.topics.map((topic) => `<span>${topic}</span>`).join("");
   specialtyDialog.showModal();
 }
@@ -89,15 +89,15 @@ specialtyDialog.addEventListener("click", (event) => {
 function setTheme(theme) {
   root.dataset.theme = theme;
   localStorage.setItem("portfolio-theme", theme);
-  themeToggle.textContent = theme === "dark" ? "☼" : "☾";
+  themeToggle.checked = theme === "light";
   themeLogo.src = theme === "dark" ? "images/logo-white.png" : "images/logo-dark.png";
 }
 
 setTheme(localStorage.getItem("portfolio-theme") || "dark");
 document.querySelector("#year").textContent = new Date().getFullYear();
 
-themeToggle.addEventListener("click", () => {
-  setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+themeToggle.addEventListener("change", () => {
+  setTheme(themeToggle.checked ? "light" : "dark");
 });
 
 menuToggle.addEventListener("click", () => {
@@ -156,9 +156,10 @@ async function loadContributionGraph(year) {
     const leadingBlanks = (firstDay + 6) % 7;
     const cells = [...Array(leadingBlanks).fill(null), ...contributions];
     contributionGrid.innerHTML = cells.map((day) => day
-      ? `<span class="contribution-cell level-${day.level}" title="${day.count} contribuições em ${day.date}"></span>`
+      ? `<span class="contribution-cell level-${day.level}" data-count="${day.count}" data-date="${day.date}"></span>`
       : '<span aria-hidden="true"></span>').join("");
     monthLabels.innerHTML = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"].map((month) => `<span>${month}</span>`).join("");
+    updateContributionTitles();
     contributionYears.forEach((button) => button.classList.toggle("active", button.dataset.contributionYear === String(year)));
   } catch (error) {
     console.error("Não foi possível carregar o gráfico de contribuições.", error);
@@ -172,3 +173,12 @@ contributionYears.forEach((button) => {
 });
 
 loadContributionGraph(2026);
+
+function updateContributionTitles() {
+  const english = window.portfolioI18n.language === "en";
+  document.querySelectorAll(".contribution-cell[data-date]").forEach((cell) => {
+    const date = new Intl.DateTimeFormat(english ? "en-US" : "pt-BR", {dateStyle:"medium", timeZone:"UTC"}).format(new Date(cell.dataset.date + "T00:00:00Z"));
+    cell.title = english ? `${cell.dataset.count} contributions on ${date}` : `${cell.dataset.count} contribui\u00e7\u00f5es em ${date}`;
+  });
+}
+document.addEventListener("languagechange", updateContributionTitles);

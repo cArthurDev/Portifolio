@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 | cArthurDev</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
@@ -13,10 +14,14 @@
       @media(max-width:560px){.error-code{margin-top:42px}.horse{transform:translateX(-50%) scale(.8)}p{font-size:12px}.error-shell{width:min(100% - 32px,720px)}}
       @media(prefers-reduced-motion:reduce){.button{transition:none}}
     </style>
+  <style>
+      .language-switch{display:inline-flex;gap:2px;padding:3px;border:1px solid #655d70;border-radius:7px;margin-bottom:24px;position:relative;z-index:1}.language-switch button{min-width:36px;min-height:36px;border:0;border-radius:4px;background:transparent;color:var(--muted);font:11px var(--mono);cursor:pointer}.language-switch button[aria-pressed=true]{background:var(--surface);color:var(--text)}.language-switch button:focus-visible{outline:2px solid var(--bright);outline-offset:2px}
+    </style>
   </head>
   <body>
     <div class="space" aria-hidden="true"><i class="star"></i><i class="star"></i><i class="star"></i></div>
     <main class="error-shell">
+      <div class="language-switch error-language" data-language-switch role="group" aria-label="Idioma / Language"><button type="button" data-language="pt" aria-label="Português" aria-pressed="true" lang="pt-BR">PT</button><button type="button" data-language="en" aria-label="English" aria-pressed="false" lang="en">EN</button></div>
       <a class="brand" href="/"><span class="brand-mark">&lt;/&gt;</span>cARTHURDEV <span>~</span></a>
       <div class="horse" aria-hidden="true"><i class="tail"></i><i class="leg leg-a"></i><i class="leg leg-b"></i><i class="leg leg-c"></i><i class="leg leg-d"></i></div>
       <div class="error-code">404</div>
@@ -25,5 +30,6 @@
       <p>A página que você procurou não existe, mudou de endereço ou está explorando outra dimensão.</p>
       <a class="button" href="/">voltar para o início <b>↗</b></a>
     </main>
+  <script src="/i18n.js"></script>
   </body>
 </html>
