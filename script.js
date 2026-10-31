@@ -1,5 +1,6 @@
 const root = document.documentElement;
 const themeToggle = document.querySelector(".theme-toggle");
+const themeLogo = document.querySelector("[data-theme-logo]");
 const menuToggle = document.querySelector(".menu-toggle");
 const header = document.querySelector(".site-header");
 const sections = [...document.querySelectorAll("main section[id]")];
@@ -89,6 +90,7 @@ function setTheme(theme) {
   root.dataset.theme = theme;
   localStorage.setItem("portfolio-theme", theme);
   themeToggle.textContent = theme === "dark" ? "☼" : "☾";
+  themeLogo.src = theme === "dark" ? "images/logo-white.png" : "images/logo-dark.png";
 }
 
 setTheme(localStorage.getItem("portfolio-theme") || "dark");
