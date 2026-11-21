@@ -1,5 +1,11 @@
-const root = document.documentElement;
 const themeToggle = document.querySelector(".theme-toggle");
+themeToggle.checked = document.documentElement.dataset.theme === "light";
+themeToggle.addEventListener("change", () => {
+  const theme = themeToggle.checked ? "light" : "gold";
+  document.documentElement.dataset.theme = theme;
+  try { localStorage.setItem("portfolio-theme", theme); } catch {}
+});
+
 const menuToggle = document.querySelector(".menu-toggle");
 const header = document.querySelector(".site-header");
 const sections = [...document.querySelectorAll("main section[id]")];
@@ -85,20 +91,7 @@ specialtyDialog.addEventListener("click", (event) => {
   if (event.target === specialtyDialog) specialtyDialog.close();
 });
 
-function setTheme(theme) {
-  const isGold = theme === "gold";
-  root.dataset.theme = isGold ? "gold" : "dark";
-  localStorage.setItem("portfolio-theme", root.dataset.theme);
-  themeToggle.checked = isGold;
-}
-
-const savedTheme = localStorage.getItem("portfolio-theme");
-setTheme(savedTheme === "gold" || savedTheme === "light" ? "gold" : "dark");
 document.querySelector("#year").textContent = new Date().getFullYear();
-
-themeToggle.addEventListener("change", () => {
-  setTheme(themeToggle.checked ? "gold" : "dark");
-});
 
 menuToggle.addEventListener("click", () => {
   const isOpen = header.classList.toggle("menu-open");

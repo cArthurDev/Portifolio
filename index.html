@@ -1,10 +1,15 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="gold">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Arthur Gonçalves de Souza — estudante de Ciência da Computação, pesquisador e desenvolvedor." />
     <title>Arthur Gonçalves | Portfólio</title>
+    <script>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme") === "light" ? "light" : "gold";
+      } catch {}
+    </script>
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,17 +23,9 @@
       <nav class="desktop-nav" aria-label="Navegação principal"><a class="active" href="#top"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>Perfil</a><a href="#work"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12a20 20 0 0 0 18 0M12 11v3"/></svg>Trabalhos</a><a href="#about"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></svg>Sobre Mim</a><a href="#skills"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 5-7 7 7 7m8-14 7 7-7 7m-3-16-2 20"/></svg>Habilidades</a><a href="#activity"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12h4l3-8 6 16 3-8h4"/></svg>Atividade</a><a href="#contact"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Contato</a></nav>
       <div class="header-right">
         <div class="language-switch" data-language-switch role="group" aria-label="Idioma / Language"><button type="button" data-language="pt" aria-label="Português" aria-pressed="true" lang="pt-BR">PT</button><button type="button" data-language="en" aria-label="English" aria-pressed="false" lang="en">EN</button></div>
-        <!-- From Uiverse.io by JustCode14 -->
         <label class="theme-switch">
-          <input class="theme-toggle" id="theme-checkbox" type="checkbox" role="switch" aria-label="Alternar paleta de cores" />
-          <span class="slider" aria-hidden="true">
-            <span class="star star_1"></span>
-            <span class="star star_2"></span>
-            <span class="star star_3"></span>
-            <svg viewBox="0 0 16 16" class="cloud_1 cloud" focusable="false">
-              <path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff" d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"></path>
-            </svg>
-          </span>
+          <input class="theme-toggle" id="theme-checkbox" type="checkbox" role="switch" aria-label="Tema claro / Light theme" />
+          <span class="slider" aria-hidden="true"><span class="star star_1"></span><span class="star star_2"></span><span class="star star_3"></span></span>
         </label>
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
       </div>
