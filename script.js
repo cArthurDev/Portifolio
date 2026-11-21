@@ -1,11 +1,3 @@
-const themeToggle = document.querySelector(".theme-toggle");
-themeToggle.checked = document.documentElement.dataset.theme === "light";
-themeToggle.addEventListener("change", () => {
-  const theme = themeToggle.checked ? "light" : "gold";
-  document.documentElement.dataset.theme = theme;
-  try { localStorage.setItem("portfolio-theme", theme); } catch {}
-});
-
 const menuToggle = document.querySelector(".menu-toggle");
 const header = document.querySelector(".site-header");
 const sections = [...document.querySelectorAll("main section[id]")];

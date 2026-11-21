@@ -166,43 +166,24 @@
 .skill-icon{display:inline-flex;align-items:center}
 .skill-icon svg{display:block;width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
-/* Gold and white theme switch */
 :root{color-scheme:dark}
-.theme-switch{font-size:17px;position:relative;display:inline-block;flex-shrink:0;width:4em;height:2.2em;margin-block:4px}
-.theme-switch input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0}
-.theme-switch .slider{position:absolute;cursor:pointer;inset:0;background:#111;border:1px solid var(--line);border-radius:30px;overflow:hidden;transition:background .3s}
-.theme-switch .slider:before{content:"";position:absolute;width:1.2em;height:1.2em;left:.45em;top:.45em;border-radius:50%;box-shadow:inset 8px -4px 0 0 #fff;transition:transform .3s,box-shadow .3s}
-.theme-switch input:checked + .slider{background:#f5ecd1;border-color:#b08d35}
-.theme-switch input:checked + .slider:before{transform:translateX(1.8em);box-shadow:inset 20px 0 0 0 #9b761d}
-.theme-switch input:focus-visible + .slider{outline:2px solid var(--purple-bright);outline-offset:4px}
-.theme-switch .star{position:absolute;width:4px;height:4px;border-radius:50%;background:#f0d47a;transition:opacity .3s}
-.theme-switch .star_1{left:2.5em;top:.5em}.theme-switch .star_2{left:2.2em;top:1.2em}.theme-switch .star_3{left:3em;top:.9em}
-.theme-switch input:checked + .slider .star{opacity:0}
-[data-theme=light]{color-scheme:light;--bg:#fff;--surface:#fff;--surface-2:#f5f1e7;--text:#171717;--muted:#62605a;--line:rgba(23,23,23,.15);--purple:#806016;--purple-bright:#866419;--pink:#735411;--green:#806016}
-[data-theme=light] .site-header{background:rgba(255,255,255,.94)}
-[data-theme=light] .brand-logo{filter:brightness(0)}
-[data-theme=light] .space-bg{background-image:radial-gradient(ellipse 66% 42% at 50% 24%,rgba(212,175,55,.1),transparent 100%),linear-gradient(rgba(23,23,23,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(23,23,23,.035) 1px,transparent 1px)}
-[data-theme=light] .terminal-pill{background:#fffdf7;border-color:rgba(128,96,22,.35);box-shadow:0 0 30px rgba(212,175,55,.1)}
-[data-theme=light] .availability{background:rgba(212,175,55,.08);border-color:rgba(128,96,22,.3)}
-[data-theme=light] .language-chip{background:var(--surface);border-color:var(--line)}
-[data-theme=light] .language-chip:hover,[data-theme=light] .language-chip:focus-visible{background:var(--surface-2)}
-[data-theme=light] .featured-skill,[data-theme=light] .specialty-dialog,[data-theme=light] .contact-panel{background:linear-gradient(145deg,#fff,#f5f1e7)}
-[data-theme=light] .activity-dashboard,[data-theme=light] .contribution-card{background:var(--surface);color:var(--text)}
-[data-theme=light] .activity-side{background:var(--surface-2)}
-[data-theme=light] .specialty-dialog{box-shadow:0 24px 80px rgba(23,23,23,.2)}
-[data-theme=light] .project-card .project-image{background:radial-gradient(circle at 50% 45%,rgba(212,175,55,.18),transparent 55%),#f5f1e7}
-[data-theme=light] .project-card .project-image:before{background-image:linear-gradient(rgba(23,23,23,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(23,23,23,.05) 1px,transparent 1px)}
-[data-theme=light] .project-image-label{color:var(--muted)}
-[data-theme=light] .project-image-arrow{border-color:var(--line)}
-[data-theme=light] .project-card:hover .project-image-arrow{color:#fff}
-[data-theme=light] .button-primary{color:#fff}
-[data-theme=light] .github-button,[data-theme=light] .contact-button{color:var(--text)}
-[data-theme=light] .github-button:before,[data-theme=light] .contact-button:before{background:#fff}
-[data-theme=light] .github-button:hover span,[data-theme=light] .contact-button:hover span{color:#fff}
-[data-theme=light] .contribution-caption,[data-theme=light] .year-button,[data-theme=light] .weekday-labels,[data-theme=light] .month-labels,[data-theme=light] .contribution-footer{color:var(--muted)}
-[data-theme=light] .year-button:hover,[data-theme=light] .year-button.active{background:#866419;color:#fff}
-[data-theme=light] .contribution-cell.level-0,[data-theme=light] .contribution-legend .level-0{background:#f0ede5}
-[data-theme=light] .contribution-cell:hover{outline-color:var(--text)}
-[data-theme=light] .contribution-footer a:hover{color:var(--text)}
-@media(max-width:380px){.theme-switch{font-size:15px}}
-@media(prefers-reduced-motion:reduce){.theme-switch .slider,.theme-switch .slider:before,.theme-switch .star{transition:none}}
+
+/* Reveal the name once on each page load without shifting the layout. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy h1 {
+    animation: hero-name-enter 1s cubic-bezier(.22, 1, .36, 1) .12s backwards;
+  }
+}
+
+@keyframes hero-name-enter {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
